@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:32:55 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 03:47:40 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/03/30 21:28:44 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
-// # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <string.h>
 # include <stdbool.h>
 # include <limits.h>
+# include "get_next_line/get_next_line.h"
 
 typedef struct s_stack
 {
@@ -36,34 +35,30 @@ typedef struct s_value
 	int	data;
 }		t_va;
 
-void	index_data(t_stack *a, t_stack *cp_a);
 t_stack	*add_front(t_stack **head, int data);
 t_stack	*add_back(t_stack **head, int data);
 t_stack	*last_node(t_stack *head);
 t_stack	*get_index(t_stack *head, unsigned int index);
-t_stack	*insert_node_at_index(t_stack **h, unsigned int idx, int n);
 void	delete_node_at_index(t_stack **head, unsigned int index);
 int		lst_size(t_stack *head);
-void	print_list(t_stack *h);
 int		ft_atoi(char *str, int *flag);
 int		ft_strlen(const char *str);
 void	ft_putstr(char *str);
-void	swap_data(t_stack *head, char c);
-void	rotation_data(t_stack **head, char c);
-void	rrotation_data(t_stack **head, char c);
-void	push_data(t_stack **stack1, t_stack **stack2, char c);
+void	swap_data(t_stack *head);
+void	sswap_data(t_stack *a, t_stack *b);
+void	rotation_data(t_stack **head);
+void	r_rotaion_data(t_stack **a, t_stack **b);
+void	r_rrotation_data(t_stack **a, t_stack **b);
+void	rrotation_data(t_stack **head);
+void	push_data(t_stack **stack1, t_stack **stack2);
 char	**ft_split(char const *s, char c);
 void	free_arrays(char **str);
 void	free_list(t_stack **head);
-void	sort_two_element(t_stack **a);
-void	sort_three_element(t_stack **a);
-void	sort_five_element(t_stack **a, t_stack **b);
-void	sort_four_element(t_stack **a, t_stack **b);
-int		min_value(t_stack *head);
 bool	is_sorted(t_stack *a);
-void	buble_sort(t_stack *current);
-int		max_value(t_stack *current);
-void	big_sorted(t_stack **a, t_stack **cp_a, t_stack **b);
+void	handle_error(t_stack **a, t_stack **b);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+void	aplly_operations(t_stack **a, t_stack **b, char *op);
+void	manage_operation(t_stack **a, t_stack **b);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:36:51 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 03:47:18 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/03/30 21:13:56 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	push_data(t_stack **stack1, t_stack **stack2, char c)
 	index_tmp = (*stack1)->index;
 	*stack2 = add_front(stack2, tmp);
 	(*stack2)->index = index_tmp;
-	delete_node_at_index(stack1, 0);
+	free_firt_node(stack1);
 	if (c == 'a')
 		ft_putstr("pa\n");
 	else if (c == 'b')

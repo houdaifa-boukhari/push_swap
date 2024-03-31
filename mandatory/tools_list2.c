@@ -6,44 +6,24 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:23:31 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 03:47:35 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/03/30 21:14:01 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	print_list(t_stack *h)
-// {
-// 	while (h)
-// 	{
-// 		printf("data is : %d, and index is : %d\n", h->data, h->index);
-// 		h = h->next;
-// 	}
-// }
-
-void	delete_node_at_index(t_stack **head, unsigned int index)
+void	free_firt_node(t_stack **head)
 {
 	t_stack	*current;
 
 	current = *head;
 	if (head == NULL || *head == NULL)
 		return ;
-	if (index == 0)
-	{
-		*head = current->next;
-		if (current->next != NULL)
-			current->next->prev = NULL;
-		free(current);
-		return ;
-	}
-	current = get_index(*head, index);
-	if (current == NULL)
-		return ;
+	*head = current->next;
 	if (current->next != NULL)
-		current->next->prev = current->prev;
-	if (current->prev != NULL)
-		current->prev->next = current->next;
+		current->next->prev = NULL;
 	free(current);
+	return ;
 }
 
 t_stack	*last_node(t_stack *head)
@@ -60,6 +40,10 @@ void	free_list(t_stack **head)
 	t_stack	*current;
 	t_stack	*next;
 
+	if (!head)
+		return ;
+	else if (!*head)
+		return ;
 	current = *head;
 	while (current)
 	{
@@ -75,6 +59,8 @@ void	buble_sort(t_stack *current)
 	int		tmp;
 	t_stack	*next;
 
+	if (!current)
+		return ;
 	while (current)
 	{
 		next = current->next;

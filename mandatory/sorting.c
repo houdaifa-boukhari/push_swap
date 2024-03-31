@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:26:30 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 02:32:11 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/03/30 21:17:12 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	min(t_stack *h)
 {
 	int	min;
 
+	if (!h)
+		return (0);
 	min = h->data;
 	while (h)
 	{
@@ -28,6 +30,8 @@ int	min(t_stack *h)
 
 void	sort_two_element(t_stack **a)
 {
+	if (!(*a) || !(*a)->next)
+		return ;
 	if ((*a)->data > (*a)->next->data)
 		swap_data(*a, 'a');
 	return ;
