@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 03:28:25 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 20:49:21 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/01 19:34:52 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,13 @@ bool	linear_search(t_stack *current, int data)
 	return (false);
 }
 
-void	handle_error(t_stack **a, t_stack **b)
+void	handle_error(t_stack **a, t_stack **b, char **str, char *line)
 {
-	ft_putstr("Error\n");
+	write(STDERR_FILENO, "Error\n", 6);
+	if (str)
+		free_arrays(str);
+	if (line)
+		free(line);
 	free_list(a);
 	free_list(b);
 	exit(EXIT_FAILURE);
@@ -37,18 +41,19 @@ void	handle_commend(t_stack **a, char **argv, int argc)
 	char	**str;
 
 	va.j = 0;
+	va.flag = 0;
 	va.i = 1;
 	while (va.i < argc)
 	{
 		va.j = 0;
 		str = ft_split(argv[va.i], ' ');
 		if (*str == NULL)
-			handle_error(a, NULL);
+			handle_error(a, NULL, str, NULL);
 		while (str[va.j])
 		{
 			va.data = ft_atoi(str[va.j], &va.flag);
 			if (linear_search(*a, va.data) == true)
-				handle_error(a, NULL);
+				handle_error(a, NULL, str, NULL);
 			add_back(a, va.data);
 			va.j++;
 		}
@@ -56,7 +61,7 @@ void	handle_commend(t_stack **a, char **argv, int argc)
 		va.i++;
 	}
 	if (va.flag == 1)
-		handle_error(a, NULL);
+		handle_error(a, NULL, NULL, NULL);
 }
 
 int	main(int argc, char **argv)
@@ -66,6 +71,7 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
+
 	if (argc <= 1)
 		return (0);
 	handle_commend(&a, argv, argc);
@@ -74,4 +80,6 @@ int	main(int argc, char **argv)
 		ft_putstr("OK\n");
 	else
 		ft_putstr("KO\n");
+	free_list(&a);
+	free_list(&b);
 }

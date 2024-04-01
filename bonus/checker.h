@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:32:55 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 21:28:44 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:35:55 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	**ft_split(char const *s, char c);
 void	free_arrays(char **str);
 void	free_list(t_stack **head);
 bool	is_sorted(t_stack *a);
-void	handle_error(t_stack **a, t_stack **b);
+void	handle_error(t_stack **a, t_stack **b, char **str, char *line);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 void	aplly_operations(t_stack **a, t_stack **b, char *op);
 void	manage_operation(t_stack **a, t_stack **b);

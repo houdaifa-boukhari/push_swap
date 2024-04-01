@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:32:55 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 21:14:19 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:53:19 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ t_stack	*last_node(t_stack *head);
 t_stack	*get_index(t_stack *head, unsigned int index);
 void	free_firt_node(t_stack **head);
 int		lst_size(t_stack *head);
-void	print_list(t_stack *h);
 int		ft_atoi(char *str, int *flag);
 int		ft_strlen(const char *str);
 void	ft_putstr(char *str);

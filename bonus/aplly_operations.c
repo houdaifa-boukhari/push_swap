@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 20:52:16 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 21:27:57 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:36:16 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	aplly_operations(t_stack **a, t_stack **b, char *op)
 	else if (ft_strcmp(op, "rrr\n") == 0)
 		r_rrotation_data(a, b);
 	else
-		handle_error(a, b);
+		handle_error(a, b, NULL, op);
 }
 
 void	r_rrotation_data(t_stack **a, t_stack **b)
@@ -45,6 +45,7 @@ void	r_rrotation_data(t_stack **a, t_stack **b)
 	rrotation_data(a);
 	rrotation_data(b);
 }
+
 void	manage_operation(t_stack **a, t_stack **b)
 {
 	char	*line;

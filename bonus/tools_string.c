@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:19:29 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 20:48:23 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/01 17:29:16 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	free_arrays(char **str)
 	}
 	free(str);
 	str = NULL;
-	return ;
 }
 
 void	ft_putstr(char *str)

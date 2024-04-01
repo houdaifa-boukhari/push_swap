@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:26:30 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 21:17:12 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/01 18:04:41 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	sort_three_element(t_stack **a)
 		swap_data(*a, 'a');
 	else if ((*a)->data > (*a)->next->data && (*a)->next->data < last->data)
 		rotation_data(a, 'a');
-	else if ((*a)->data < (*a)->next->data 
+	else if ((*a)->data < (*a)->next->data
 		&& (*a)->next->data > last->data && (*a)->data > last->data)
 		rrotation_data(a, 'a');
 	else if ((*a)->data < (*a)->next->data && (*a)->next->data > last->data)

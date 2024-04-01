@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:23:31 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 20:53:55 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/01 19:37:43 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,10 @@ bool	is_sorted(t_stack *a)
 {
 	t_stack	*next;
 
-	if (!a || !(a->next))
+	if (!a)
 		return (false);
+	else if (lst_size(a) == 1)
+		return (true);
 	while (a)
 	{
 		if (a->next)
