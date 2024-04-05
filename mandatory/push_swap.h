@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 02:32:55 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/04/01 17:53:19 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/02 01:01:55 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void	buble_sort(t_stack *current);
 int		max_value(t_stack *current);
 void	big_sorted(t_stack **a, t_stack **cp_a, t_stack **b);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+bool	linear_search(t_stack *current, int data);
 
 #endif

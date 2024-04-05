@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 20:36:13 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/31 18:03:42 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/02 00:53:28 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,13 @@ void	ft_range(t_stack **a, t_stack **b)
 		range_max = 0.045 * lst_size(*a);
 	while (*a)
 	{
-		if ((*a)->index >= range_min && (*a)->index <= range_max)
-		{
-			push_data(a, b, 'b');
-			range_min++;
-			range_max++;
-		}
-		else if ((*a)->index > range_max)
+		if ((*a)->index > range_max)
 			rotation_data(a, 'a');
-		else if ((*a)->index < range_min)
+		else
 		{
 			push_data(a, b, 'b');
-			rotation_data(b, 'b');
+			if ((*b)->index < range_min)
+				rotation_data(b, 'b');
 			range_min++;
 			range_max++;
 		}

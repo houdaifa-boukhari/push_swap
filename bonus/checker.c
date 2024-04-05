@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 03:28:25 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/04/01 19:34:52 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/02 00:41:05 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-
 	if (argc <= 1)
 		return (0);
 	handle_commend(&a, argv, argc);

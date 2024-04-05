@@ -6,21 +6,18 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 03:28:25 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/04/01 20:21:50 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/02 01:08:55 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	linear_search(t_stack *current, int data)
+void	success_sorting(t_stack **a, t_stack **b, t_stack **cp_a)
 {
-	while (current)
-	{
-		if (data == current->data)
-			return (true);
-		current = current->next;
-	}
-	return (false);
+	free_list(a);
+	free_list(b);
+	free_list(cp_a);
+	exit(0);
 }
 
 void	handle_error(t_stack **a, t_stack **cp_a, char **str)
@@ -30,7 +27,22 @@ void	handle_error(t_stack **a, t_stack **cp_a, char **str)
 		free_arrays(str);
 	free_list(a);
 	free_list(cp_a);
-	exit(255);
+	exit(EXIT_FAILURE);
+}
+
+void	process_commends(char **str, t_stack **a, t_stack **cp_a, t_va *va)
+{
+	va->j = 0;
+	while (str[va->j])
+	{
+		va->data = ft_atoi(str[va->j], &va->flag);
+		if (linear_search(*a, va->data) == true)
+			handle_error(a, cp_a, str);
+		add_back(a, va->data);
+		add_back(cp_a, va->data);
+		va->j++;
+	}
+	free_arrays(str);
 }
 
 void	handle_commend(t_stack **a, t_stack **cp_a, char **argv, int argc)
@@ -43,20 +55,10 @@ void	handle_commend(t_stack **a, t_stack **cp_a, char **argv, int argc)
 	va.flag = 0;
 	while (va.i < argc)
 	{
-		va.j = 0;
 		str = ft_split(argv[va.i], ' ');
 		if (*str == NULL)
 			handle_error(a, cp_a, str);
-		while (str[va.j])
-		{
-			va.data = ft_atoi(str[va.j], &va.flag);
-			if (linear_search(*a, va.data) == true)
-				handle_error(a, cp_a, str);
-			add_back(a, va.data);
-			add_back(cp_a, va.data);
-			va.j++;
-		}
-		free_arrays(str);
+		process_commends(str, a, cp_a, &va);
 		va.i++;
 	}
 	if (va.flag == 1)
@@ -78,13 +80,7 @@ int	main(int argc, char **argv)
 	handle_commend(&a, &cp_a, argv, argc);
 	size = lst_size(a);
 	if (is_sorted(a) == true)
-	{
-
-		free_list(&a);
-		free_list(&b);
-		free_list(&cp_a);
-		return (0);	
-	}
+		success_sorting(&a, &b, &cp_a);
 	if (size == 2)
 		sort_two_element(&a);
 	else if (size == 3)
@@ -95,7 +91,5 @@ int	main(int argc, char **argv)
 		sort_five_element(&a, &b);
 	else if (size > 5)
 		big_sorted(&a, &cp_a, &b);
-	free_list(&a);
-	free_list(&b);
-	free_list(&cp_a);
+	success_sorting(&a, &b, &cp_a);
 }

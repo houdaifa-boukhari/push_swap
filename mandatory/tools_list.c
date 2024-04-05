@@ -6,7 +6,7 @@
 /*   By: hel-bouk <hel-bouk@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 00:34:47 by hel-bouk          #+#    #+#             */
-/*   Updated: 2024/03/30 21:09:31 by hel-bouk         ###   ########.fr       */
+/*   Updated: 2024/04/02 01:01:23 by hel-bouk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,17 @@ t_stack	*get_index(t_stack *head, unsigned int index)
 		i++;
 	}
 	return (head);
+}
+
+bool	linear_search(t_stack *current, int data)
+{
+	while (current)
+	{
+		if (data == current->data)
+			return (true);
+		current = current->next;
+	}
+	return (false);
 }
 
 int	lst_size(t_stack *head)
