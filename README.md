@@ -1,0 +1,1 @@
+push_swap is a project from the 1337 Common Core curriculum, focused on creating a program that sorts data on a stack using a limited set of operations. The objective is to optimize the number of operations while adhering to specific rules.
